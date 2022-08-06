@@ -2,21 +2,22 @@ import React from 'react';
 
 import s from './Table.module.scss';
 
-interface Category{
-  id: string,
-  name: string,
+interface Category {
+  id: string;
+  name: string;
 }
 
-interface Item{
-  id: number,
-  category: Category,
-  name: string,
-  price: number
+interface Item {
+  id: number;
+  category: Category;
+  name: string;
+  price: number;
 }
 
-const List = ({ items=[], cart=[] }) => {
+const List = ({ items = [], cart = [] }) => {
   console.log(items);
-  return (
+  return <>
+    {items? 
     <table className={s.table}>
       <thead>
         <tr>
@@ -39,7 +40,9 @@ const List = ({ items=[], cart=[] }) => {
         })}
       </tbody>
     </table>
-  );
+      : 
+    <table></table>}
+  </>;
 };
 
 export default List;
