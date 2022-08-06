@@ -1,9 +1,8 @@
 import React, { useCallback, useEffect, useState } from 'react';
 
-import s from './Products.module.scss';
+// import s from './Products.module.scss';
 import { getProducts } from './../../services/FetchApi';
 import Table from 'components/Table';
-
 
 const Products = () => {
   const [products, setProducts] = useState([]);
@@ -16,12 +15,10 @@ const Products = () => {
   useEffect(() => {
     fetchReq();
   }, [fetchReq]);
-    
 
   return (
     <div>
-      <h1 className={s.prod}>Products</h1>
-          <Table items={ products} />
+      <Table items={products} />
     </div>
   );
 };
