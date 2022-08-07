@@ -9,3 +9,8 @@ async function fetchCatchErrors(url = '', config = {}) {
 export function getProducts() {
   return fetchCatchErrors(`${BASE_URL}products`);
 }
+
+export function getCategories() {
+  return fetchCatchErrors(`${BASE_URL}product/categories`);
+}
+
