@@ -2,25 +2,7 @@ import React from 'react';
 
 import s from './ProductsTable.module.scss';
 
-// interface Category {
-//   id: string;
-//   name: string;
-// }
-
-// interface Item {
-//   map: any;
-//   id: number;
-//   category: Category;
-//   name: string;
-//   price: number;
-// }
-
-// interface Props {
-//   items: Item;
-//   select: object;
-// }
-
-const ProductsTable = ({ items, select }) => {
+const ProductsTable = ({ products, add, remove }) => {
   return (
     <>
       <h2>Products</h2>
@@ -34,13 +16,21 @@ const ProductsTable = ({ items, select }) => {
           </tr>
         </thead>
         <tbody>
-          {items?.map(({ id, category, name, price }) => {
+          {products?.map(({ id, category, name, price }) => {
             return (
               <tr key={id} className={category.id}>
                 <td>{category.name}</td>
-                <td>{name}</td>
+                <td className={s.name}>{name}</td>
                 <td>{price}</td>
-                <td onClick={select}>(-) Action (+)</td>
+                <td data-id={id}>
+                  <span className={s.removeProduct} onClick={remove}>
+                    (-)
+                  </span>{' '}
+                  Action
+                  <span className={s.addProduct} onClick={add}>
+                    (+)
+                  </span>
+                </td>
               </tr>
             );
           })}

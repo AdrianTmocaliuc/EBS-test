@@ -1,7 +1,16 @@
 import React from 'react';
 
-const CartTable = () => {
-  // const [selected, setSelected] = useState([]);
+const CartTable = ({ cart }) => {
+  // const [cart, setCart] = useState([]);
+  // console.log(cart);
+
+  // useEffect(() => {
+  //   let localMemory = localStorage.getItem('cart');
+  //   if (localMemory) {
+  //     setCart([...JSON.parse(localMemory)]);
+  //   }
+  // }, []);
+
   return (
     <>
       <h2>Cart</h2>
@@ -15,7 +24,19 @@ const CartTable = () => {
             <th>Actions</th>
           </tr>
         </thead>
-        <tbody></tbody>
+        <tbody>
+          {cart?.map(({ id, name, category, price }) => {
+            return (
+              <tr key={id}>
+                <td>{category.name}</td>
+                <td>{name}</td>
+                <td>0</td>
+                <td>{price}</td>
+                <td>Remove</td>
+              </tr>
+            );
+          })}
+        </tbody>
       </table>
     </>
   );
