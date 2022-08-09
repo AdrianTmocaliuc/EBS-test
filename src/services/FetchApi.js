@@ -13,4 +13,3 @@ export function getProducts() {
 export function getCategories() {
   return fetchCatchErrors(`${BASE_URL}product/categories`);
 }
-

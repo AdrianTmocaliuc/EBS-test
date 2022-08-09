@@ -17,14 +17,14 @@ const Products = () => {
     fetchReq();
   }, [fetchReq]);
 
-  const handleClick = ({currentTarget}: any) => {
-    console.log(currentTarget.parentNode.className)
-  }
+  const handleClick = ({ currentTarget }) => {
+    console.log(currentTarget.parentNode.className);
+  };
 
   return (
     <div className={s.products}>
-      <ProductsTable items={products} select={handleClick}  />
-      <CartTable/>
+      <ProductsTable items={products} select={handleClick} />
+      <CartTable />
     </div>
   );
 };
