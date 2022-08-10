@@ -1,13 +1,10 @@
 @import 'assets/scss/styles/_mixin.scss';
 
-.title{
-  @include font(700,
-    24px,
-    38px)
+.title {
+  @include font(700, 24px, 38px);
 }
 
-.removeProduct, .addProduct {
+.removeProduct,
+.addProduct {
   cursor: pointer;
 }
-
-
