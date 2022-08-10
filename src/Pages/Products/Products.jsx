@@ -18,7 +18,7 @@ const Products = ({ products }) => {
 
       setCart([...updateCart]);
 
-      return console.log('Add product');
+      return console.log('Product add');
     }
     addProduct.quantity = 1;
     setCart([...cart, addProduct]);

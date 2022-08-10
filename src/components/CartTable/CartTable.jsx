@@ -28,7 +28,7 @@ const CartTable = ({ cart, add, remove }) => {
                   <span className={s.removeProduct} onClick={remove}>
                     (-)
                   </span>
-                  Remove
+                  Action
                   <span className={s.addProduct} onClick={add}>
                     (+)
                   </span>
