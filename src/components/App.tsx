@@ -1,5 +1,5 @@
 import React, { useCallback, useEffect, useState } from 'react';
-import {  getProducts } from 'services/FetchApi';
+import { getProducts } from 'services/FetchApi';
 import Products from 'Pages/Products';
 
 const App = () => {
@@ -13,10 +13,10 @@ const App = () => {
   useEffect(() => {
     fetchReq();
   }, [fetchReq]);
-  
+
   return (
     <>
-      <Products products={products}/>
+      <Products products={products} />
     </>
   );
 };
