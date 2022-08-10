@@ -1,10 +1,11 @@
-import ProductsTable from 'components/ProductsTable';
 import React from 'react';
 
-import s from './Products.module.scss';
+import ProductsTable from 'components/ProductsTable';
 import CartTable from 'components/CartTable';
 import { productQuantity, selectedElements } from 'assets/helpers';
 import useLocalStorage from 'assets/hooks/useLocalStorage';
+
+import s from './Products.module.scss';
 
 const Products = ({ products }) => {
   const [cart, setCart] = useLocalStorage();

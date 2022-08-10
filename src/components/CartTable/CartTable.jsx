@@ -1,23 +1,15 @@
-import { calculateTotalPrice } from 'assets/helpers';
 import React from 'react';
+
+import { calculateTotalPrice } from 'assets/helpers';
 
 import s from './CartTable.module.scss';
 
 const CartTable = ({ cart, add, remove }) => {
-  // const test = cart.map((el) => el.quantity);
-  // console.log(test);
-  // const arr = cart.map((el) => {
-  //   const quantities = el.quantity;
-  //   const prices = el.price;
-  //   return quantities * prices;
-  // });
-
-  // console.log(arr);
   const totalPrice = calculateTotalPrice(cart);
-  console.log(totalPrice);
+
   return (
     <>
-      <h2>Cart</h2>
+      <h2 className={s.title}>Cart</h2>
       <table>
         <thead>
           <tr>

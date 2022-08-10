@@ -1,7 +1,13 @@
-.removeProduct {
+@import 'assets/scss/styles/_mixin.scss';
+
+.title{
+  @include font(700,
+    24px,
+    38px)
+}
+
+.removeProduct, .addProduct {
   cursor: pointer;
 }
 
-.addProduct {
-  cursor: pointer;
-}
+
