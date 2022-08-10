@@ -1,8 +1,11 @@
-.select, .category, .addProduct, .removeProduct{
+.select,
+.category,
+.addProduct,
+.removeProduct {
   cursor: pointer;
 }
-.selectors{
+.selectors {
   position: absolute;
-  background-color:gainsboro;
+  background-color: gainsboro;
   text-align: left;
 }
