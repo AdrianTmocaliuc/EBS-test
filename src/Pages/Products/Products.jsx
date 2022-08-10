@@ -1,47 +1,37 @@
 import ProductsTable from 'components/ProductsTable';
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 
 import s from './Products.module.scss';
 import CartTable from 'components/CartTable';
 import productQuantity from 'utils/productQuantity';
+import selectedElements from 'utils/selectedElements';
+import useLocalStorage from 'utils/hooks/useLocalStorage';
 
 const Products = ({ products }) => {
-  const [cart, setCart] = useState([]);
-
-  useEffect(() => {
-    let localMemory = localStorage.getItem('cart');
-    if (localMemory) {
-      setCart([...JSON.parse(localMemory)]);
-    }
-  }, []);
+  const [cart, setCart] = useLocalStorage();
 
   const addClick = ({ currentTarget }) => {
-    const selectedId = +currentTarget.parentNode.dataset.id;
-    const addProduct = products.find((el) => el.id === selectedId);
+    const addProduct = selectedElements(products, currentTarget);
 
     if (cart.find((el) => el.id === addProduct.id)) {
       const updateCart = productQuantity(cart, addProduct);
 
-      localStorage.setItem('cart', JSON.stringify([...updateCart]));
       setCart([...updateCart]);
 
       return console.log('Add product');
     }
     addProduct.quantity = 1;
-    localStorage.setItem('cart', JSON.stringify([...cart, addProduct]));
     setCart([...cart, addProduct]);
   };
 
   const removeClick = ({ currentTarget }) => {
-    const selectedId = +currentTarget.parentNode.dataset.id;
-    const removeProduct = cart.find((el) => el.id === selectedId);
+    const removeProduct = selectedElements(cart, currentTarget);
 
     if (!removeProduct) {
       return console.log('Not found');
     }
 
     const updateCart = productQuantity(cart, removeProduct, true);
-    localStorage.setItem('cart', JSON.stringify([...updateCart]));
     setCart([...updateCart]);
   };
 
