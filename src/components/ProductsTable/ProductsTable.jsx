@@ -25,7 +25,7 @@ const ProductsTable = ({ products, add, remove }) => {
                 <td data-id={id}>
                   <span className={s.removeProduct} onClick={remove}>
                     (-)
-                  </span>{' '}
+                  </span>
                   Action
                   <span className={s.addProduct} onClick={add}>
                     (+)

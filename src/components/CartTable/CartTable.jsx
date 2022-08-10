@@ -1,16 +1,8 @@
 import React from 'react';
 
-const CartTable = ({ cart }) => {
-  // const [cart, setCart] = useState([]);
-  // console.log(cart);
+import s from './CartTable.module.scss';
 
-  // useEffect(() => {
-  //   let localMemory = localStorage.getItem('cart');
-  //   if (localMemory) {
-  //     setCart([...JSON.parse(localMemory)]);
-  //   }
-  // }, []);
-
+const CartTable = ({ cart, add, remove }) => {
   return (
     <>
       <h2>Cart</h2>
@@ -25,14 +17,22 @@ const CartTable = ({ cart }) => {
           </tr>
         </thead>
         <tbody>
-          {cart?.map(({ id, name, category, price }) => {
+          {cart.map(({ id, name, category, price, quantity }) => {
             return (
               <tr key={id}>
                 <td>{category.name}</td>
                 <td>{name}</td>
-                <td>0</td>
+                <td>{quantity}</td>
                 <td>{price}</td>
-                <td>Remove</td>
+                <td data-id={id}>
+                  <span className={s.removeProduct} onClick={remove}>
+                    (-)
+                  </span>
+                  Remove
+                  <span className={s.addProduct} onClick={add}>
+                    (+)
+                  </span>
+                </td>
               </tr>
             );
           })}
