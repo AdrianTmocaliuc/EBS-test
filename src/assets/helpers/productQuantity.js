@@ -1,4 +1,4 @@
-const productQuantity = (cart, product, remove = false) => {
+export const productQuantity = (cart, product, remove = false) => {
   const extraProduct = cart.find((el) => el.id === product.id);
   const extraProductIdx = cart.findIndex((el) => el.id === product.id);
 
@@ -16,5 +16,3 @@ const productQuantity = (cart, product, remove = false) => {
   cart[extraProductIdx] = extraProduct;
   return cart;
 };
-
-export default productQuantity;

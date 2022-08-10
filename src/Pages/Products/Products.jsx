@@ -3,9 +3,8 @@ import React from 'react';
 
 import s from './Products.module.scss';
 import CartTable from 'components/CartTable';
-import productQuantity from 'utils/productQuantity';
-import selectedElements from 'utils/selectedElements';
-import useLocalStorage from 'utils/hooks/useLocalStorage';
+import { productQuantity, selectedElements } from 'assets/helpers';
+import useLocalStorage from 'assets/hooks/useLocalStorage';
 
 const Products = ({ products }) => {
   const [cart, setCart] = useLocalStorage();
