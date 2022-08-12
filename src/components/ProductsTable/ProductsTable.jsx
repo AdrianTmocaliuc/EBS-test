@@ -1,4 +1,5 @@
 import React, { useCallback, useEffect, useState } from 'react';
+import { PropTypes } from 'prop-types';
 
 import { getCategories } from 'services/FetchApi';
 import useCloseModal from 'assets/hooks/useCloseModal';
@@ -44,7 +45,7 @@ const ProductsTable = () => {
                     return (
                       <option
                         key={id}
-                        className={s.category}
+                        className={s.categoryName}
                         onClick={() => {
                           setSelect(name);
                           setActive(false);
@@ -57,7 +58,7 @@ const ProductsTable = () => {
                 </div>
               )}
             </th>
-            <th className={s.name}>Name</th>
+            <th>Name</th>
             <th
               className={s.price}
               onClick={() => {
@@ -70,7 +71,7 @@ const ProductsTable = () => {
                 <use href={`${spriteSVG}#vector`}></use>
               </svg>
             </th>
-            <th className={s.action}>Action</th>
+            <th>Action</th>
           </tr>
         </thead>
         <tbody className={s.products}>
@@ -79,6 +80,14 @@ const ProductsTable = () => {
       </table>
     </div>
   );
+};
+
+ProductsTable.propTypes = {
+  categories: PropTypes.arrayOf(PropTypes.string),
+  sortPrice: PropTypes.bool,
+  select: PropTypes.string,
+  action: PropTypes.bool,
+  vectorDirection: PropTypes.bool,
 };
 
 export default ProductsTable;

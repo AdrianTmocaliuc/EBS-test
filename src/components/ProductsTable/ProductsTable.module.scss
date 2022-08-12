@@ -3,19 +3,21 @@
 .title {
   margin: 20px;
   @include font(700, 36px, 38px);
+  text-align: center;
 }
 
 .table {
-  background-color: #000;
+  background-color: var(--table-bg-cl);
   margin: 0 auto;
+  width: 800px;
 }
 
 .columns {
-  background-color: #76a1cd;
+  background-color: var(--prodTable-main-cl);
 }
 
 .products {
-  background-color: #74b3c2;
+  background-color: var(--prodTable-second-cl);
 }
 
 .price,
@@ -28,7 +30,19 @@
 
 .category {
   height: 30px;
-  width: 350px;
+  
+}
+
+.categoryName{
+    padding: 5px;
+  &:not(:last-child){
+    border-bottom: 1px solid var(--border-cl);
+  }
+  
+    &:hover{
+    background-color: var(--main-bg-cl);
+
+  }
 }
 .iconVectorDown {
   width: 10px;
@@ -40,20 +54,14 @@
   transform: rotateZ(-90deg);
 }
 
-.name {
-  width: 170px;
-}
 
 .price {
-  width: 70px;
   svg {
     margin-left: 5px;
   }
 }
 
-.action {
-  width: 100px;
-}
+
 
 .product {
   height: 25px;
@@ -67,6 +75,7 @@
 
 .selectors {
   position: absolute;
-  background-color: gainsboro;
+  background-color: var(--selectList-bg-cl);
   text-align: left;
+  border: 1px solid var(--border-cl);
 }

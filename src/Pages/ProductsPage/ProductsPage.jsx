@@ -6,7 +6,7 @@ import { calculateTotalProducts } from 'assets/helpers';
 import spriteSVG from 'assets/images/sprite.svg';
 import { useProducts } from 'components/ProductsContext/ProductsContext';
 
-import s from './Products.module.scss';
+import s from './ProductsPage.module.scss';
 
 const Products = () => {
   const { cart } = useProducts();

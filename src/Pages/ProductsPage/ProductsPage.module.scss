@@ -12,7 +12,7 @@
   width: 40px;
   height: 40px;
   border-radius: 50%;
-  background-color: greenyellow;
+  background-color: var(--cartTable-second-cl);
   cursor: pointer;
 }
 
@@ -30,7 +30,7 @@
   width: 17px;
   height: 17px;
   border-radius: 50%;
-  background-color: #f1fa66;
+  background-color: var(--countInCart-cl);
   text-align: center;
 }
 

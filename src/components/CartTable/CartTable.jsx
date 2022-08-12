@@ -1,9 +1,9 @@
 import React from 'react';
 
+import { useProducts } from 'components/ProductsContext/ProductsContext';
 import { calculateTotalPrice } from 'assets/helpers';
 
 import s from './CartTable.module.scss';
-import { useProducts } from 'components/ProductsContext/ProductsContext';
 
 const CartTable = () => {
   const { cart, addClick, removeClick } = useProducts();
@@ -11,6 +11,7 @@ const CartTable = () => {
 
   return (
     <>
+      <h1 className={s.title}>Cart</h1>
       <table className={s.table}>
         <thead className={s.tableHead}>
           <tr>

@@ -1,5 +1,5 @@
 import CartPage from 'pages/Cart/CartPage';
-import Products from 'pages/Products';
+import ProductsPage from 'pages/ProductsPage';
 import React from 'react';
 import { Route, Switch } from 'react-router-dom';
 
@@ -10,13 +10,13 @@ const App = () => {
     <Container>
       <Switch>
         <Route path="/" exact>
-          <Products />
+          <ProductsPage />
         </Route>
         <Route path="/cart">
           <CartPage />
         </Route>
         <Route>
-          <Products />
+          <ProductsPage />
         </Route>
       </Switch>
     </Container>
