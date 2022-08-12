@@ -40,11 +40,13 @@ export const ProductsProvider = ({ children }) => {
     const removeProduct = selectedElements(cart, currentTarget);
 
     if (!removeProduct) {
-      return console.log('Not found');
+      return console.log('Not in the cart');
     }
 
     const updateCart = productQuantity(cart, removeProduct, true);
     setCart([...updateCart]);
+
+    console.log('PRoduct remove from cart');
   };
 
   return (

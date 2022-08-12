@@ -1,0 +1,31 @@
+@import 'assets/scss/styles/_mixin.scss';
+
+.backButton {
+    padding: 5px;
+    display: flex;
+    background-color: var(--prodTable-second-cl);
+}
+
+.iconVector {
+    width: 20px;
+    height: 20px;
+    transform: rotateY(180deg);
+    margin-right: 10px;
+}
+
+.btnText {
+    @include font(500, 24px, 20px);
+}
+
+.notFound{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;
+    height: 600px;
+    @include font(700, 40px, 36px);
+}
+
+.notFoundText{
+    text-align: center;
+}
