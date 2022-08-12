@@ -30,18 +30,16 @@
 
 .category {
   height: 30px;
-  
 }
 
-.categoryName{
-    padding: 5px;
-  &:not(:last-child){
+.categoryName {
+  padding: 5px;
+  &:not(:last-child) {
     border-bottom: 1px solid var(--border-cl);
   }
-  
-    &:hover{
-    background-color: var(--main-bg-cl);
 
+  &:hover {
+    background-color: var(--main-bg-cl);
   }
 }
 .iconVectorDown {
@@ -54,14 +52,11 @@
   transform: rotateZ(-90deg);
 }
 
-
 .price {
   svg {
     margin-left: 5px;
   }
 }
-
-
 
 .product {
   height: 25px;

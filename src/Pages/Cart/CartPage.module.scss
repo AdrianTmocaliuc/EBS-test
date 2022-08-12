@@ -1,18 +1,17 @@
 @import 'assets/scss/styles/_mixin.scss';
 
-.backButton{
-    padding: 5px;
-    display: flex;
-    background-color: var(--prodTable-second-cl);
+.backButton {
+  padding: 5px;
+  display: flex;
+  background-color: var(--prodTable-second-cl);
 }
-.iconVector{
-    width: 20px;
-    height: 20px;
-    transform: rotateY(180deg);
-    margin-right: 10px;
+.iconVector {
+  width: 20px;
+  height: 20px;
+  transform: rotateY(180deg);
+  margin-right: 10px;
 }
 
-.btnText{
-@include font(500, 24px, 20px);
-
+.btnText {
+  @include font(500, 24px, 20px);
 }
