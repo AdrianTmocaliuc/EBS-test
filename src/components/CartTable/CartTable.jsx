@@ -3,8 +3,10 @@ import React from 'react';
 import { calculateTotalPrice } from 'assets/helpers';
 
 import s from './CartTable.module.scss';
+import { useProducts } from 'components/ProductsContext/ProductsContext';
 
-const CartTable = ({ cart, add, remove }) => {
+const CartTable = () => {
+  const { cart, addClick, removeClick } = useProducts();
   const totalPrice = cart ? calculateTotalPrice(cart) : 0;
 
   return (
@@ -28,11 +30,11 @@ const CartTable = ({ cart, add, remove }) => {
                 <td>{quantity}</td>
                 <td>{price}</td>
                 <td data-id={id}>
-                  <span className={s.removeProduct} onClick={remove}>
+                  <span className={s.removeProduct} onClick={removeClick}>
                     (-)
                   </span>
                   Action
-                  <span className={s.addProduct} onClick={add}>
+                  <span className={s.addProduct} onClick={addClick}>
                     (+)
                   </span>
                 </td>

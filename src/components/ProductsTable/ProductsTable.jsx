@@ -1,14 +1,13 @@
 import React, { useCallback, useEffect, useState } from 'react';
 
 import { getCategories } from 'services/FetchApi';
-import { productsByCategory, sortByPrice } from 'assets/helpers';
 import useCloseModal from 'assets/hooks/useCloseModal';
 import spriteSVG from 'assets/images/sprite.svg';
 import ProductsList from './ProductsList';
 
 import s from './ProductsTable.module.scss';
 
-const ProductsTable = ({ products, add, remove }) => {
+const ProductsTable = () => {
   const [categories, setCategories] = useState([]);
   const [sortPrice, setSortPrice] = useState(false);
   const [select, setSelect] = useState('Category');
@@ -16,9 +15,6 @@ const ProductsTable = ({ products, add, remove }) => {
   const [vectorDirection, setVectorDirection] = useState(false);
 
   let domNode = useCloseModal(() => setActive(false));
-
-  const filterProducts = productsByCategory(products, select);
-  const sortProducts = sortByPrice(filterProducts, sortPrice);
 
   const fetchReq = useCallback(async () => {
     const catList = await getCategories();
@@ -30,7 +26,7 @@ const ProductsTable = ({ products, add, remove }) => {
   }, [fetchReq]);
 
   return (
-    <div className={s.productsTable}>
+    <div>
       <h1 className={s.title}>Products</h1>
       <table className={s.table}>
         <thead className={s.columns}>
@@ -78,7 +74,7 @@ const ProductsTable = ({ products, add, remove }) => {
           </tr>
         </thead>
         <tbody className={s.products}>
-          <ProductsList list={sortProducts} add={add} remove={remove} />
+          <ProductsList select={select} sortPrice={sortPrice} />
         </tbody>
       </table>
     </div>

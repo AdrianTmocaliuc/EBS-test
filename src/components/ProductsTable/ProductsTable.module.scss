@@ -1,13 +1,5 @@
 @import 'assets/scss/styles/_mixin.scss';
 
-.productsTable {
-  // background-color: red;
-  // display: flex;
-  // flex-direction: column;
-  // align-content: center;
-  // text-align: center;
-}
-
 .title {
   margin: 20px;
   @include font(700, 36px, 38px);
