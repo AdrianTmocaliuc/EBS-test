@@ -19,7 +19,6 @@ const App = () => {
         <Route>
           <NotFoundPage />
         </Route>
-
       </Switch>
     </Container>
   );
