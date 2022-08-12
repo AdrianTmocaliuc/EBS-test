@@ -1,24 +1,25 @@
-import React, { useCallback, useEffect, useState } from 'react';
-
-import { getProducts } from 'services/FetchApi';
+import CartPage from 'pages/Cart/CartPage';
 import Products from 'pages/Products';
+import React from 'react';
+import { Route, Switch } from 'react-router-dom';
+
+import Container from './Container';
 
 const App = () => {
-  const [products, setProducts] = useState([]);
-
-  const fetchReq = useCallback(async () => {
-    const prodList = await getProducts();
-    setProducts(prodList);
-  }, []);
-
-  useEffect(() => {
-    fetchReq();
-  }, [fetchReq]);
-
   return (
-    <>
-      <Products products={products} />
-    </>
+    <Container>
+      <Switch>
+        <Route path="/" exact>
+          <Products />
+        </Route>
+        <Route path="/cart">
+            <CartPage/>
+        </Route>
+          <Route>
+            <Products/>
+        </Route>
+      </Switch>
+    </Container>
   );
 };
 

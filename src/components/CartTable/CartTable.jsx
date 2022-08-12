@@ -5,25 +5,24 @@ import { calculateTotalPrice } from 'assets/helpers';
 import s from './CartTable.module.scss';
 
 const CartTable = ({ cart, add, remove }) => {
-  const totalPrice = calculateTotalPrice(cart);
+  const totalPrice = cart ? calculateTotalPrice(cart) : 0;
 
   return (
     <>
-      <h2 className={s.title}>Cart</h2>
-      <table>
-        <thead>
+      <table className={s.table}>
+        <thead className={s.tableHead}>
           <tr>
-            <th>Category</th>
+            <th className={s.category}>Category</th>
             <th>Name</th>
             <th>Quantity</th>
             <th>Price</th>
             <th>Actions</th>
           </tr>
         </thead>
-        <tbody>
-          {cart.map(({ id, name, category, price, quantity }) => {
+        <tbody className={s.tableBody}>
+          {cart?.map(({ id, name, category, price, quantity }) => {
             return (
-              <tr key={id}>
+              <tr key={id} className={s.product}>
                 <td>{category.name}</td>
                 <td>{name}</td>
                 <td>{quantity}</td>
@@ -40,13 +39,14 @@ const CartTable = ({ cart, add, remove }) => {
               </tr>
             );
           })}
-          <tr>
-            <td className={s.totalPrice}>Total price:</td>
-            <td></td>
-            <td></td>
-            <td>{totalPrice}</td>
-          </tr>
         </tbody>
+        <tfoot className={s.tableFoot}>
+          <tr>
+            <td colSpan="3">Total price:</td>
+
+            <td colSpan="2">{totalPrice}</td>
+          </tr>
+        </tfoot>
       </table>
     </>
   );

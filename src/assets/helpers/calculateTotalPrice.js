@@ -5,7 +5,9 @@ export const calculateTotalPrice = (cart) => {
     return quantities * prices;
   });
 
-  return arr.reduce((prev, next) => {
+  const result = arr.reduce((prev, next) => {
     return prev + next;
   }, 0);
+
+  return Math.round(result * 100) / 100;
 };

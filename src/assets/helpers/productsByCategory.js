@@ -3,5 +3,5 @@ export const productsByCategory = (products, select) => {
     return products;
   }
 
-  return products?.filter((el) => el.category.id === select);
+  return products?.filter((el) => el.category.name === select);
 };

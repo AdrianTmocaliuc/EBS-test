@@ -3,6 +3,8 @@ import React, { useCallback, useEffect, useState } from 'react';
 import { getCategories } from 'services/FetchApi';
 import { productsByCategory, sortByPrice } from 'assets/helpers';
 import useCloseModal from 'assets/hooks/useCloseModal';
+import spriteSVG from 'assets/images/sprite.svg';
+import ProductsList from './ProductsList';
 
 import s from './ProductsTable.module.scss';
 
@@ -11,6 +13,7 @@ const ProductsTable = ({ products, add, remove }) => {
   const [sortPrice, setSortPrice] = useState(false);
   const [select, setSelect] = useState('Category');
   const [active, setActive] = useState(false);
+  const [vectorDirection, setVectorDirection] = useState(false);
 
   let domNode = useCloseModal(() => setActive(false));
 
@@ -27,14 +30,17 @@ const ProductsTable = ({ products, add, remove }) => {
   }, [fetchReq]);
 
   return (
-    <>
-      <h2>Products</h2>
+    <div className={s.productsTable}>
+      <h1 className={s.title}>Products</h1>
       <table className={s.table}>
-        <thead>
+        <thead className={s.columns}>
           <tr>
-            <th>
+            <th className={s.category}>
               <div className={s.select} onClick={() => setActive(!active)}>
-                <b>{select}</b>
+                <b>{select} </b>
+                <svg className={active ? s.iconVectorUp : s.iconVectorDown}>
+                  <use href={`${spriteSVG}#vector`}></use>
+                </svg>
               </div>
               {active && (
                 <div ref={domNode} className={s.selectors}>
@@ -44,7 +50,7 @@ const ProductsTable = ({ products, add, remove }) => {
                         key={id}
                         className={s.category}
                         onClick={() => {
-                          setSelect(id);
+                          setSelect(name);
                           setActive(false);
                         }}
                       >
@@ -55,35 +61,27 @@ const ProductsTable = ({ products, add, remove }) => {
                 </div>
               )}
             </th>
-            <th>Name</th>
-            <th className={s.price} onClick={() => setSortPrice(!sortPrice)}>
+            <th className={s.name}>Name</th>
+            <th
+              className={s.price}
+              onClick={() => {
+                setSortPrice(!sortPrice);
+                setVectorDirection(!vectorDirection);
+              }}
+            >
               Price
+              <svg className={vectorDirection ? s.iconVectorUp : s.iconVectorDown}>
+                <use href={`${spriteSVG}#vector`}></use>
+              </svg>
             </th>
-            <th>Action</th>
+            <th className={s.action}>Action</th>
           </tr>
         </thead>
-        <tbody>
-          {sortProducts?.map(({ id, category, name, price }) => {
-            return (
-              <tr key={id} className={category.id}>
-                <td>{category.name}</td>
-                <td className={s.name}>{name}</td>
-                <td>{price}</td>
-                <td data-id={id}>
-                  <span className={s.removeProduct} onClick={remove}>
-                    (-)
-                  </span>
-                  Action
-                  <span className={s.addProduct} onClick={add}>
-                    (+)
-                  </span>
-                </td>
-              </tr>
-            );
-          })}
+        <tbody className={s.products}>
+          <ProductsList list={sortProducts} add={add} remove={remove} />
         </tbody>
       </table>
-    </>
+    </div>
   );
 };
 
