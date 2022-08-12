@@ -1,32 +1,29 @@
 @import 'assets/scss/styles/_mixin.scss';
 
-.productsTable{
-  
+.productsTable {
   // background-color: red;
   // display: flex;
   // flex-direction: column;
   // align-content: center;
   // text-align: center;
-  
 }
 
 .title {
   margin: 20px;
   @include font(700, 36px, 38px);
-
 }
 
-.table{
+.table {
   background-color: #000;
   margin: 0 auto;
 }
 
-.columns{
-  background-color: #76A1CD;
+.columns {
+  background-color: #76a1cd;
 }
 
-.products{
-  background-color: #74B3C2;
+.products {
+  background-color: #74b3c2;
 }
 
 .price,
@@ -37,41 +34,41 @@
   cursor: pointer;
 }
 
-.category{
+.category {
   height: 30px;
   width: 350px;
 }
-.iconVectorDown{
+.iconVectorDown {
   width: 10px;
   height: 10px;
   transform: rotateZ(90deg);
 }
-.iconVectorUp{
+.iconVectorUp {
   composes: iconVectorDown;
   transform: rotateZ(-90deg);
 }
 
-.name{
+.name {
   width: 170px;
 }
 
-.price{
+.price {
   width: 70px;
-  svg{
+  svg {
     margin-left: 5px;
   }
 }
 
-.action{
+.action {
   width: 100px;
 }
 
-.product{
+.product {
   height: 25px;
-  td:nth-child(-n+2){
+  td:nth-child(-n + 2) {
     padding-left: 10px;
   }
-  td:nth-last-child(-n+2) {
+  td:nth-last-child(-n + 2) {
     text-align: center;
   }
 }

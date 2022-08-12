@@ -6,7 +6,8 @@ import 'assets/scss/main.scss';
 import { BrowserRouter } from 'react-router-dom';
 
 render(
-    <BrowserRouter>
-        <App />
-    </BrowserRouter>
-    , document.getElementById('root'));
+  <BrowserRouter>
+    <App />
+  </BrowserRouter>,
+  document.getElementById('root'),
+);

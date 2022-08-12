@@ -13,10 +13,10 @@ const App = () => {
           <Products />
         </Route>
         <Route path="/cart">
-            <CartPage/>
+          <CartPage />
         </Route>
-          <Route>
-            <Products/>
+        <Route>
+          <Products />
         </Route>
       </Switch>
     </Container>
